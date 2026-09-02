@@ -14,14 +14,20 @@ ouvert via un QR code scanné par les joueurs.
   - `assets/style.css` — le style commun.
 - `build_site.py` — régénère les pages à partir des textes définis dans le
   script (`REAL_CLUES` et `DECOYS`).
-- `build_qr.py` — génère un QR code PNG par page une fois l'URL connue
-  (nécessite le module Python `qrcode`, voir `.venv-qr`).
-- `build_recap.py` — génère `recap-organisateur.html` (privé, jamais poussé
-  sur GitHub) listant chaque texte + son URL, pour préparer l'impression.
-- `manifest.json`, `qr/`, `recap-organisateur.html` — **jamais commités**
+- `build_qr.py` — génère les QR codes PNG **manquants** une fois l'URL connue
+  (nécessite le module Python `qrcode`, voir `.venv-qr`). Ne touche jamais un
+  PNG déjà généré : chaque exécution qui trouve de nouveaux indices/leurres
+  crée un nouveau dossier `qr/lot-N/` (avec `vrais-indices/` et
+  `faux-indices/`), en plus des lots précédents déjà imprimés. Comme ça, on
+  sait toujours quels QR codes sont déjà imprimés (`lot-1`, `lot-2`, ...) et
+  lesquels restent à imprimer (dernier lot en date).
+- `build_recap.py` — génère `recap-vrais-indices.html` et
+  `recap-faux-indices.html` (privés, jamais poussés sur GitHub) listant
+  chaque texte + son URL, pour préparer l'impression.
+- `manifest.json`, `qr/`, `recap-*.html` — **jamais commités**
   (voir `.gitignore`) : ils révèlent quelles pages sont de vrais indices.
 
-## Régénérer après modification des textes
+## Régénérer après ajout de nouveaux indices/leurres
 
 ```bash
 python3 build_site.py
@@ -30,11 +36,14 @@ python3 -m venv .venv-qr && .venv-qr/bin/pip install "qrcode[pil]"  # une fois
 .venv-qr/bin/python build_qr.py https://cams401.github.io/murder
 ```
 
+Le dernier `qr/lot-N/` créé contient uniquement les QR codes des indices
+ajoutés depuis la dernière impression — c'est celui-là qu'il faut imprimer.
+
 ## Déploiement GitHub Pages
 
 1. Créer un dépôt GitHub vide nommé `murder` sous le compte `cams401`.
 2. Pousser ce dépôt (voir commandes fournies).
 3. Dans Settings → Pages : source = branche `main`, dossier `/docs`.
 4. Le site sera disponible sur `https://cams401.github.io/murder/`.
-5. Imprimer les QR codes du dossier `qr/` (correspondance dans
-   `recap-organisateur.html`, à garder pour toi).
+5. Imprimer les QR codes du dernier `qr/lot-N/` (correspondance dans
+   `recap-vrais-indices.html` / `recap-faux-indices.html`, à garder pour toi).
