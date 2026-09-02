@@ -2,4 +2,4 @@
 .DS_Store
 manifest.json
 qr/
-recap-organisateur.html
+recap-*.html

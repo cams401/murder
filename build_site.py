@@ -53,19 +53,63 @@ def make_page(kind: str, keyword: str, body: str, signature: str = "", eyebrow: 
 
 
 REAL_CLUES = [
-    ("mail-supprime", "Mail supprimé", ""),
-    (
-        "mail-alexandre",
-        "Sandrine,\n\nJe refuse de continuer à cacher certains dossiers.\nNous devons parler aujourd'hui.\n\nA.",
-        "",
-    ),
-    (
-        "anomalie-filiere",
-        "Toute anomalie découverte entraînera la fermeture de la filière.",
-        "Alexandra",
-    ),
-    ("decision-direction", "Décision imposée par la direction.", ""),
-    ("robin-informe", "Robin ne doit surtout pas être informé.", ""),
+    {
+        "keyword": "mail-supprime",
+        "body": "Mail supprimé",
+        "eyebrow": "Mail supprimé",
+    },
+    {
+        "keyword": "mail-alexandre",
+        "body": "Sandrine,\n\nJe refuse de continuer à cacher certains dossiers.\nNous devons parler aujourd'hui.\n\nA.",
+    },
+    {
+        "keyword": "anomalie-filiere",
+        "body": "Toute anomalie découverte entraînera la fermeture de la filière.",
+        "signature": "Alexandra",
+    },
+    {
+        "keyword": "decision-direction",
+        "body": "Décision imposée par la direction.",
+    },
+    {
+        "keyword": "robin-informe",
+        "body": "Robin ne doit surtout pas être informé.",
+    },
+    {
+        "keyword": "note-audit",
+        "body": "Audit – 14h00",
+        "eyebrow": "Note",
+    },
+    {
+        "keyword": "ticket-impression",
+        "body": "Heure : 11h08\nUtilisateur : ADMIN-ALEX",
+        "eyebrow": "Ticket d'impression",
+    },
+    {
+        "keyword": "rapport-etudiants",
+        "body": "Personne ne doit évoquer ces dossiers devant les étudiants.",
+        "eyebrow": "Rapport",
+    },
+    {
+        "keyword": "carte-identite-axelle",
+        "body": "Axelle\n\nNée le 11/08/1995",
+        "eyebrow": "Carte d'identité",
+    },
+    {
+        "keyword": "badges-alexandra",
+        "body": "Badge : ALEXANDRA\n\n11h11 — Ascenseur\n11h15 — Ascenseur\n11h27 — Ascenseur",
+        "eyebrow": "Historique des badges",
+    },
+    {
+        "keyword": "sms-sandrine-andrea",
+        "body": (
+            "Sandrine : « Pourquoi veux-tu les clés ? »\n\n"
+            "Andréa : « Alexandra me l'a demandé. »\n\n"
+            "Sandrine : « Je trouve ça étrange... »\n\n"
+            "Alexandra : « Ne discute pas. Fais-le. »"
+        ),
+        "eyebrow": "SMS",
+    },
 ]
 
 DECOYS = [
@@ -88,6 +132,26 @@ DECOYS = [
     "Tu pensais vraiment que ce serait aussi simple ?",
     "Encore raté… mais on croit en toi.",
     "Si tu lis ce message, c'est que tu es très motivé… ou très perdu.",
+    "Ce QR code a demandé l'asile politique dans un autre indice.",
+    "Bravo, tu as trouvé... un QR code.",
+    "Sandrine te remercie de ta visite, mais n'a rien à te dire ici.",
+    "Indice non trouvé. As-tu essayé de le chercher avec les yeux ouverts ?",
+    "Ce n'est pas un indice, c'est un test de curiosité. Tu l'as réussi.",
+    "L'enquête continue, mais pas ici.",
+    "Ce QR code participe activement à ton échec.",
+    "Un indice sur deux se trouve ailleurs. Celui-ci fait partie de l'autre moitié.",
+    "Robin n'est pas caché derrière ce QR code non plus.",
+    "Alexandra ne validera pas ce chemin d'enquête.",
+    "Ce message s'autodétruira... non, en fait, pas du tout.",
+    "Tu progresses à une vitesse remarquablement lente.",
+    "Ce QR code a été placé ici uniquement pour le suspense.",
+    "Toujours pas d'indice, mais toujours de l'espoir.",
+    "Ce n'est pas la case départ, mais ça y ressemble beaucoup.",
+    "Un faux indice de plus dans ta collection.",
+    "Les vrais indices ne se scannent pas par hasard.",
+    "Ce QR code préfère garder ses secrets.",
+    "Si la victoire était facile, ce ne serait pas un murder party.",
+    "Tu chauffes… au sens propre, avec ton téléphone en plein soleil.",
 ]
 
 
@@ -107,9 +171,14 @@ def main():
     INDICES.mkdir(parents=True, exist_ok=True)
     manifest = []
 
-    for keyword, body, signature in REAL_CLUES:
-        eyebrow = "Mail supprimé" if keyword == "mail-supprime" else "Indice"
-        filename, text = make_page("indice", keyword, body, signature, eyebrow=eyebrow)
+    for clue in REAL_CLUES:
+        filename, text = make_page(
+            "indice",
+            clue["keyword"],
+            clue["body"],
+            clue.get("signature", ""),
+            eyebrow=clue.get("eyebrow", "Indice"),
+        )
         manifest.append({"type": "indice", "file": filename, "text": text})
 
     for text in DECOYS:

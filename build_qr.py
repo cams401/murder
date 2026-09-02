@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Génère les QR codes PNG pour chaque page, une fois l'URL de base connue."""
+"""Génère les QR codes PNG pour chaque page, une fois l'URL de base connue.
+
+Les QR codes des vrais indices et des leurres sont rangés dans deux
+dossiers séparés pour que l'organisateur ne les mélange pas à l'impression.
+"""
 import json
 import sys
 from pathlib import Path
@@ -7,8 +11,12 @@ from pathlib import Path
 import qrcode
 
 ROOT = Path(__file__).parent
-DOCS = ROOT / "docs"
 QR_DIR = ROOT / "qr"
+
+DEST_BY_TYPE = {
+    "indice": QR_DIR / "vrais-indices",
+    "leurre": QR_DIR / "faux-indices",
+}
 
 
 def main():
@@ -19,15 +27,20 @@ def main():
 
     manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
 
-    QR_DIR.mkdir(exist_ok=True)
+    for d in DEST_BY_TYPE.values():
+        d.mkdir(parents=True, exist_ok=True)
+
+    counts = {"indice": 0, "leurre": 0}
     for entry in manifest:
         filename = entry["file"]
         url = f"{base_url}/indices/{filename}"
         img = qrcode.make(url, border=2)
-        out = QR_DIR / (Path(filename).stem + ".png")
+        out = DEST_BY_TYPE[entry["type"]] / (Path(filename).stem + ".png")
         img.save(out)
+        counts[entry["type"]] += 1
 
-    print(f"{len(manifest)} QR codes générés dans {QR_DIR}")
+    print(f"{counts['indice']} QR codes (vrais indices) dans {DEST_BY_TYPE['indice']}")
+    print(f"{counts['leurre']} QR codes (faux indices) dans {DEST_BY_TYPE['leurre']}")
 
 
 if __name__ == "__main__":
