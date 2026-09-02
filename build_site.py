@@ -116,6 +116,10 @@ REAL_CLUES = [
         "eyebrow": "Liste des étudiants (incomplète)",
     },
     {
+        "keyword": "prenom-andrea",
+        "body": "Andréa",
+    },
+    {
         "keyword": "sms-sandrine-andrea",
         "body": (
             "Sandrine : « Pourquoi veux-tu les clés ? »\n\n"
