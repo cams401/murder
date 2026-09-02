@@ -101,6 +101,21 @@ REAL_CLUES = [
         "eyebrow": "Historique des badges",
     },
     {
+        "keyword": "liste-etudiants",
+        "body": (
+            "LISTE DES ÉTUDIANTS — L3\n\n"
+            "...rie Lambert\n"
+            "Julien R...\n"
+            "...andre Petit\n"
+            "Camille Do...\n"
+            "...na Novak\n"
+            "Thomas Ber...\n"
+            "...abelle Roy\n"
+            "Yanis Kh..."
+        ),
+        "eyebrow": "Liste des étudiants (incomplète)",
+    },
+    {
         "keyword": "sms-sandrine-andrea",
         "body": (
             "Sandrine : « Pourquoi veux-tu les clés ? »\n\n"
