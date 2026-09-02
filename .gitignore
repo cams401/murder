@@ -1,0 +1,5 @@
+.venv-qr/
+.DS_Store
+manifest.json
+qr/
+recap-organisateur.html
