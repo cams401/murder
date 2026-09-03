@@ -164,26 +164,6 @@ REAL_CLUES = [
         "eyebrow": "SMS",
     },
     {
-        "keyword": "declaration-alexandra",
-        "body": "Alexandra : « J'étais dans mon bureau toute la matinée. »",
-        "eyebrow": "Déclaration",
-    },
-    {
-        "keyword": "declaration-andrea",
-        "body": "Andréa : « Je n'ai pas quitté l'accueil avant midi. »",
-        "eyebrow": "Déclaration",
-    },
-    {
-        "keyword": "declaration-robin",
-        "body": "Robin : « J'étais en réunion externe jusqu'à 13h30. »",
-        "eyebrow": "Déclaration",
-    },
-    {
-        "keyword": "declaration-axelle",
-        "body": "Axelle : « J'étais en cours toute la matinée, comme d'habitude. »",
-        "eyebrow": "Déclaration",
-    },
-    {
         "keyword": "badge-porte-archives",
         "body": "Badge : ALEXANDRA\n\nPorte Archives — 11h29",
         "eyebrow": "Historique des badges",
