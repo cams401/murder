@@ -129,6 +129,40 @@ REAL_CLUES = [
         ),
         "eyebrow": "SMS",
     },
+    {
+        "keyword": "sms-axelle-sandrine",
+        "body": (
+            "Axelle : « Tu comptes vraiment tout dire ? »\n\n"
+            "Sandrine : « Il le faut, Axelle. »\n\n"
+            "Axelle : « S'il te plaît, ne dis rien. Ça détruirait tout pour moi. »\n\n"
+            "Sandrine : « Je suis désolée. »"
+        ),
+        "eyebrow": "SMS",
+    },
+    {
+        "keyword": "mails-sandrine-robin",
+        "body": (
+            "Sandrine : « Robin, il faut que tu voies ces dossiers avant l'audit. »\n\n"
+            "Robin : « Je sais déjà. Ce n'est plus mon problème. »"
+        ),
+        "eyebrow": "Mails",
+    },
+    {
+        "keyword": "sms-andrea-alexandra",
+        "body": (
+            "Andréa : « Les clés sont où tu voulais. »\n\n"
+            "Alexandra : « Bien. Oublie tout ça. »"
+        ),
+        "eyebrow": "SMS",
+    },
+    {
+        "keyword": "sms-alexandra-robin",
+        "body": (
+            "Alexandra : « On peut arranger ça avant l'audit ? »\n\n"
+            "Robin : « Fais ce que tu as à faire. Je ne veux rien savoir. »"
+        ),
+        "eyebrow": "SMS",
+    },
 ]
 
 DECOYS = [
