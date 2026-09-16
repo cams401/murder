@@ -196,6 +196,10 @@ REAL_CLUES = [
         "body": "Heure : 11h22\nUtilisateur : LOIC.B",
         "eyebrow": "Ticket d'impression",
     },
+    {
+        "keyword": "salle-archives-s13",
+        "body": "Salle des archives — S13",
+    },
 ]
 
 DECOYS = [
