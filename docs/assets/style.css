@@ -101,7 +101,52 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+.planning-title {
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 0 0 1.6rem;
+  letter-spacing: 0.02em;
+}
+
+.planning-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+.planning-table td {
+  padding: 0.55rem 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.planning-table td.heure {
+  width: 4.5rem;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.8;
+}
+
+.planning-table tr.highlight td.heure {
+  position: relative;
+}
+
+.circled {
+  position: relative;
+  display: inline-block;
+  padding: 0.05em 0.5em;
+}
+
+.circled::before {
+  content: "";
+  position: absolute;
+  inset: -0.35em -0.15em;
+  border: 2.5px solid var(--accent);
+  border-radius: 50% / 60%;
+  transform: rotate(-4deg);
+  pointer-events: none;
+}
+
 @media (max-width: 420px) {
   .card { padding: 2.4rem 1.6rem; }
   .text { font-size: 1.15rem; }
+  .planning-table { font-size: 0.9rem; }
 }

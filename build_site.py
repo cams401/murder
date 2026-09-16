@@ -28,6 +28,27 @@ TEMPLATE = """<!doctype html>
 </html>
 """
 
+PLANNING_TEMPLATE = """<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>{title}</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <main class="card">
+    <p class="eyebrow">{eyebrow}</p>
+    <p class="planning-title">{planning_title}</p>
+    <table class="planning-table">
+{rows}
+    </table>
+  </main>
+</body>
+</html>
+"""
+
 def slugify_hash(key: str) -> str:
     # Le nom de fichier ne doit JAMAIS trahir si la page est un vrai indice ou
     # un leurre : le dépôt GitHub est public et sa liste de fichiers est
@@ -50,6 +71,35 @@ def make_page(kind: str, keyword: str, body: str, signature: str = "", eyebrow: 
     )
     (INDICES / filename).write_text(page, encoding="utf-8")
     return filename, body
+
+
+def make_planning_page(keyword: str, planning_title: str, rows, highlight: str, eyebrow: str = "Planning"):
+    key = "planning" + keyword + planning_title + json.dumps(rows) + highlight
+    filename = f"msg-{slugify_hash(key)}.html"
+
+    row_lines = []
+    text_parts = [planning_title]
+    for heure, activite in rows:
+        is_highlight = heure == highlight
+        row_class = ' class="highlight"' if is_highlight else ""
+        heure_html = html.escape(heure)
+        if is_highlight:
+            heure_html = f'<span class="circled">{heure_html}</span>'
+        row_lines.append(
+            f'      <tr{row_class}><td class="heure">{heure_html}</td>'
+            f"<td>{html.escape(activite)}</td></tr>"
+        )
+        text_parts.append(f"{heure} — {activite}")
+    rows_html = "\n".join(row_lines)
+
+    page = PLANNING_TEMPLATE.format(
+        title="Indice",
+        eyebrow=html.escape(eyebrow),
+        planning_title=html.escape(planning_title),
+        rows=rows_html,
+    )
+    (INDICES / filename).write_text(page, encoding="utf-8")
+    return filename, "\n".join(text_parts)
 
 
 REAL_CLUES = [
@@ -202,6 +252,22 @@ REAL_CLUES = [
     },
 ]
 
+PLANNINGS = [
+    {
+        "keyword": "planning-robin",
+        "planning_title": "Robin — Journée type",
+        "rows": [
+            ("09h00", "Point équipe"),
+            ("10h00", "RDV partenaire (extérieur)"),
+            ("11h00", "RDV partenaire (extérieur)"),
+            ("12h30", "Pause déjeuner"),
+            ("13h30", "RDV interne — bureau"),
+            ("14h00", "Audit"),
+        ],
+        "highlight": "13h30",
+    },
+]
+
 DECOYS = [
     "Raté ! Mais puisque tu es là, profite-en pour vérifier si tu as bien payé ta CVEC.",
     "Pas ici ! Par contre, si tu cherches l'amour de ta vie, il est sûrement en train de scanner un autre QR code.",
@@ -268,6 +334,15 @@ def main():
             clue["body"],
             clue.get("signature", ""),
             eyebrow=clue.get("eyebrow", "Indice"),
+        )
+        manifest.append({"type": "indice", "file": filename, "text": text})
+
+    for planning in PLANNINGS:
+        filename, text = make_planning_page(
+            planning["keyword"],
+            planning["planning_title"],
+            planning["rows"],
+            planning["highlight"],
         )
         manifest.append({"type": "indice", "file": filename, "text": text})
 
