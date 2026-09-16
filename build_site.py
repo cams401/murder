@@ -168,6 +168,34 @@ REAL_CLUES = [
         "body": "Badge : ALEXANDRA\n\nPorte Archives — 11h29",
         "eyebrow": "Historique des badges",
     },
+    {
+        "keyword": "badge-axelle-archives",
+        "body": "Badge : AXELLE\n\nPorte Archives — 11h20",
+        "eyebrow": "Historique des badges",
+    },
+    {
+        "keyword": "sms-laurine-collegue",
+        "body": (
+            "Collègue : « Tu as vu Sandrine ce matin ? »\n\n"
+            "Laurine : « Non... enfin, pas vraiment. »"
+        ),
+        "eyebrow": "SMS",
+    },
+    {
+        "keyword": "note-laurine-conflit",
+        "body": "Laurine refuse de retravailler avec Sandrine sur ce dossier.",
+        "eyebrow": "Note",
+    },
+    {
+        "keyword": "sms-loic-menace",
+        "body": "Loïc : « Si Sandrine parle, je perds tout. »",
+        "eyebrow": "SMS",
+    },
+    {
+        "keyword": "ticket-impression-loic",
+        "body": "Heure : 11h22\nUtilisateur : LOIC.B",
+        "eyebrow": "Ticket d'impression",
+    },
 ]
 
 DECOYS = [
