@@ -288,16 +288,6 @@ REAL_CLUES = [
         "body": "Axelle a menacé de démissionner si son dossier n'était pas validé avant la fin du mois.",
         "eyebrow": "Note",
     },
-    {
-        "keyword": "note-laurine-poste",
-        "body": "Laurine visait le poste de Sandrine depuis des mois.",
-        "eyebrow": "Note",
-    },
-    {
-        "keyword": "note-loic-frais",
-        "body": "Sandrine avait découvert que Loïc falsifiait ses notes de frais.",
-        "eyebrow": "Note",
-    },
 ]
 
 PLANNINGS = [
