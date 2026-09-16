@@ -263,9 +263,9 @@ REAL_CLUES = [
     {
         "keyword": "mails-etudiant-robin-refus",
         "body": (
-            "Étudiant : « Pourquoi mon dossier a été refusé ? »\n\n"
+            "Thomas Martin : « Pourquoi mon dossier a été refusé ? »\n\n"
             "Robin : « Ce n'est pas à moi de justifier chaque décision. »\n\n"
-            "Étudiant : « Mais j'avais toutes les conditions... »\n\n"
+            "Thomas Martin : « Mais j'avais toutes les conditions... »\n\n"
             "Robin : « La réponse ne changera pas. »"
         ),
         "eyebrow": "Mails",
