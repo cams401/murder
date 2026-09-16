@@ -250,6 +250,16 @@ REAL_CLUES = [
         "keyword": "salle-archives-s13",
         "body": "Salle des archives — S13",
     },
+    {
+        "keyword": "sms-axelle-sandrine-retard",
+        "body": (
+            "Sandrine : « Ton étudiant est arrivé avec 30 minutes de retard chez le partenaire. »\n\n"
+            "Axelle : « Je ne suis pas responsable de son emploi du temps. »\n\n"
+            "Sandrine : « Ça nous fait mauvaise image. »\n\n"
+            "Axelle : « Tu exagères, ce n'est pas si grave. »"
+        ),
+        "eyebrow": "SMS",
+    },
 ]
 
 PLANNINGS = [
