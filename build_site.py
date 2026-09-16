@@ -288,6 +288,16 @@ REAL_CLUES = [
         "body": "Axelle a menacé de démissionner si son dossier n'était pas validé avant la fin du mois.",
         "eyebrow": "Note",
     },
+    {
+        "keyword": "note-laurine-dette",
+        "body": "Laurine doit de l'argent à Sandrine et refuse de la rembourser depuis des mois.",
+        "eyebrow": "Note",
+    },
+    {
+        "keyword": "note-loic-diplome",
+        "body": "Loïc a menti sur son diplôme pour obtenir son poste. Sandrine l'avait découvert.",
+        "eyebrow": "Note",
+    },
 ]
 
 PLANNINGS = [
