@@ -298,6 +298,16 @@ REAL_CLUES = [
         "body": "Loïc a menti sur son diplôme pour obtenir son poste. Sandrine l'avait découvert.",
         "eyebrow": "Note",
     },
+    {
+        "keyword": "epreuve-maxime",
+        "body": (
+            "Rendez-vous auprès de Maxime.\n\n"
+            "Trouvez la meilleure excuse pour justifier un retard.\n"
+            "Chaque membre de l'équipe doit la raconter avec une émotion différente.\n\n"
+            "S'il est convaincu, il vous donnera un indice."
+        ),
+        "eyebrow": "Épreuve",
+    },
 ]
 
 PLANNINGS = [
