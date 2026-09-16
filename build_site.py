@@ -270,6 +270,34 @@ REAL_CLUES = [
         ),
         "eyebrow": "Mails",
     },
+    {
+        "keyword": "badge-robin-archives",
+        "body": "Badge : ROBIN\n\nPorte Archives — 11h31",
+        "eyebrow": "Historique des badges",
+    },
+    {
+        "keyword": "sms-robin-alexandra-cestfait",
+        "body": (
+            "Robin : « C'est fait. »\n\n"
+            "Alexandra : « Bien. Plus un mot. »"
+        ),
+        "eyebrow": "SMS",
+    },
+    {
+        "keyword": "note-axelle-demission",
+        "body": "Axelle a menacé de démissionner si son dossier n'était pas validé avant la fin du mois.",
+        "eyebrow": "Note",
+    },
+    {
+        "keyword": "note-laurine-poste",
+        "body": "Laurine visait le poste de Sandrine depuis des mois.",
+        "eyebrow": "Note",
+    },
+    {
+        "keyword": "note-loic-frais",
+        "body": "Sandrine avait découvert que Loïc falsifiait ses notes de frais.",
+        "eyebrow": "Note",
+    },
 ]
 
 PLANNINGS = [
