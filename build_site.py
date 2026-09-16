@@ -276,10 +276,10 @@ REAL_CLUES = [
         "eyebrow": "Historique des badges",
     },
     {
-        "keyword": "sms-robin-alexandra-cestfait",
+        "keyword": "sms-robin-loic-cestfait",
         "body": (
             "Robin : « C'est fait. »\n\n"
-            "Alexandra : « Bien. Plus un mot. »"
+            "Loïc : « Bien. Plus un mot. »"
         ),
         "eyebrow": "SMS",
     },
