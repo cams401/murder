@@ -253,10 +253,10 @@ REAL_CLUES = [
     {
         "keyword": "sms-axelle-sandrine-retard",
         "body": (
-            "Sandrine : « Ton étudiant est arrivé avec 30 minutes de retard en cours. »\n\n"
-            "Axelle : « Je ne suis pas responsable de son emploi du temps. »\n\n"
-            "Sandrine : « Ça nous fait mauvaise image. »\n\n"
-            "Axelle : « Tu exagères, ce n'est pas si grave. »"
+            "Sandrine : « Il est arrivé avec 30 minutes de retard, je l'ai laissé entrer en cours. »\n\n"
+            "Axelle : « Tu n'aurais pas dû faire ça. »\n\n"
+            "Sandrine : « Ce n'est qu'un retard, Axelle. »\n\n"
+            "Axelle : « Tu ne comprends rien. »"
         ),
         "eyebrow": "SMS",
     },
